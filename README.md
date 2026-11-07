@@ -87,4 +87,9 @@ AION Sentinel, its model, scoring methods, weights, and implementation are propr
 - [Hugging Face documentation card](https://huggingface.co/aion-analytics-india/aion-sentinel)
 - [AION website](https://aionanalytics.in/) · [GitHub organization](https://github.com/AION-Analytics-India) · [GitLab group](https://gitlab.com/groups/aion-analytics-india) · [Hugging Face organization](https://huggingface.co/aion-analytics-india)
 
+### Company profiles and public channels
+
+- [LinkedIn](https://www.linkedin.com/company/aion-analytics-india/) · [X](https://x.com/Aion_analytics_) · [YouTube](https://www.youtube.com/@aionanalytics)
+- [Telegram](https://t.me/+VXWCiDgZjBI3ZjA1) · [Discord](https://discord.gg/Dk9Pjc9cVa) · [PyPI maintainer profile](https://pypi.org/user/aion-analytics/)
+
 **AION Analytics Private Limited (India).** Information for research and screening; not a finding, professional opinion, or advice.
