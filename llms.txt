@@ -1,0 +1,33 @@
+# AION Sentinel
+
+AION Sentinel is a proprietary hosted corporate-integrity screening product for public financial reporting. It helps human reviewers prioritize areas in dated records of covered listed Indian companies for further examination. It is not a fraud detector, finding, probability of wrongdoing, or decision recommendation.
+
+## Verified application
+
+- Research and due-diligence triage: review dated screening tiers, flags, explanations, peer context, and available source/period details, then inspect the underlying filings independently.
+
+## Possible downstream integrations
+
+Portfolio, borrower, counterparty, compliance, audit, rating, insurance, board, and regulatory-research workflows require customer-built joins and controls. They are not built-in connectors or confirmed deployments. Sentinel does not screen unlisted companies, ingest institutional portfolios, or make credit, investment, underwriting, audit, or compliance decisions.
+
+## Reading outputs
+
+A tier is a relative screening category within a dated coverage snapshot, not a calibrated probability. A flag is a prompt to inspect source material; peer context is not proof. Missing or unevaluated information is not a clean result. False positives and missed issues are possible.
+
+## Current public availability
+
+The public demo is at https://aionanalytics.in/demo/sentinel. On anonymous readback 2026-11-07, it displayed snapshot date 2026-11-04 and 3,008 listed companies; these are dated page values, not permanent coverage claims. Additional access is controlled by current demo and institutional entitlements. Institutional API terms: https://aionanalytics.in/apis. Product and limitations: https://aionanalytics.in/models/sentinel. Contact: https://aionanalytics.in/contact.
+
+## Proprietary boundary
+
+Sentinel is proprietary intellectual property of AION Analytics Private Limited (India). No source code, model weights, confidential methodology, or open-source license is provided. The Hugging Face card is documentation only; Hugging Face hosts no Sentinel inference or weights.
+
+## Canonical references
+
+- Website: https://aionanalytics.in/
+- GitHub documentation: https://github.com/AION-Analytics-India/aion-sentinel
+- GitLab documentation copy: https://gitlab.com/aion-analytics-india/aion-sentinel
+- Hugging Face documentation card: https://huggingface.co/aion-analytics-india/aion-sentinel
+- GitHub organization: https://github.com/AION-Analytics-India
+- GitLab group: https://gitlab.com/groups/aion-analytics-india
+- Hugging Face organization: https://huggingface.co/aion-analytics-india
