@@ -115,11 +115,9 @@ An internal or locally verified API route does **not** establish a functioning a
 
 The [Hugging Face Sentinel card](https://huggingface.co/aion-analytics-india/aion-sentinel) is a discovery and documentation surface; Hugging Face does not host Sentinel model weights or inference for AION.
 
-## Proprietary and legal boundaries
+## Product access and limitations
 
-AION Sentinel is a proprietary hosted product operated by **AION Analytics Private Limited (India)**. This repository contains public documentation, **not** the proprietary model, implementation, datasets or weights, and grants no open-source or commercial redistribution licence.
-
-**Planned patent and India-exclusive licence (not yet effective):** The founder intends to file a patent application in his individual name for technology associated with Sentinel. **As of 8 November 2026, that application has not been filed**; this README therefore does not claim a patent-pending application or granted patent for that technology. The intended arrangement is for the founder to **retain patent ownership** and grant **AION Analytics Private Limited an exclusive licence for India** to the specified patent rights, subject to valid title, applicable law and execution of the appropriate written agreement. No patent assignment, executed exclusive licence or registered licence interest is claimed here. Ownership and permissions for software, copyright, trade secrets and other technology remain separate matters; this README does not transfer them. All applicable rights are reserved.
+AION Sentinel is a proprietary hosted product presented by **AION Analytics Private Limited (India)**. This repository provides public product documentation only. It does not contain executable Sentinel software, source code, model weights, private datasets or hosted inference, and is not an open-source release.
 
 Sentinel provides research information only. It is not a credit rating, audit opinion, compliance finding, fraud allegation, regulatory determination, investment recommendation or instruction to transact.
 
