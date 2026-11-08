@@ -1,95 +1,132 @@
-# AION Sentinel — Corporate Integrity and Forensic Financial Screening
+# AION Sentinel
 
-**AION Sentinel is a proprietary corporate-integrity screening product for public financial reporting.** It helps a reviewer prioritize listed Indian companies and filing areas for further examination. It does not determine whether a company committed fraud or misconduct.
+**Financial-statement preparation, corporate relationship analysis, and evidence-led review of listed Indian companies.**
 
-Sentinel is a hosted AION product. Its public Hugging Face page is documentation only; Hugging Face does not host Sentinel inference or model weights.
+AION Sentinel is a proprietary, hosted corporate-analysis system. It does more than assign a screening tier: it prepares financial and relationship evidence, runs accounting and governance checks, and generates dated company-review outputs. Relative rankings help analysts decide what to examine next; they are not conclusions about misconduct.
 
-## What Sentinel analyzes
+The product is designed to support qualified human research. It does **not** establish fraud, predict default probabilities, provide investment advice, issue credit ratings, or make lending or investment decisions.
 
-Sentinel screens public corporate filings and financial-reporting information for patterns and divergences that may merit human review. Results come from a dated coverage snapshot. An individual result can include a screening tier, review flags and explanations, peer context, and source or period details where those are available. The current public demo masks company identities in its worked examples.
+> **Product boundary:** This is public capability documentation, not a repository of executable Sentinel code or model weights. Features below have different levels of input coverage, computation, reporting and client delivery. An internal result should not be assumed to exist in every client-facing response.
 
-The screen is intended to help answer **where should a qualified person look more closely?** It does not provide an audit opinion, verify every underlying fact, or replace examination of the source filings.
+## What Sentinel actually prepares
 
-## Who can benefit
+The following analytical work was examined in an internal capability review dated **3 November 2026**. It is not a statement that every calculation is complete, current, or exposed in the standard public demo.
 
-The verified product workflow is public-filing screening and research triage for analysts and institutional research teams: use the dated results to prioritize which available filings or reporting patterns to examine next. This describes a supported workflow, not a claim that any named institution is a customer, partner, evaluator, or endorser.
+| Layer | Existing analytical work | What an analyst can examine | Important boundary |
+| --- | --- | --- | --- |
+| Financial records | Retains annual accounts, borrowing and interest fields, tax, working capital, cash-flow information, reporting basis and source context | Reported performance and balance-sheet history, with visible data gaps | Available fields and financial years vary by company |
+| Cash reconstruction | Reconstructs annual cash movement from available financial-statement information and compares it with disclosed balances | Cash-versus-earnings differences and reconciliation questions | Statement-based analysis, **not** a bank transaction ledger; cumulative-history coverage is incomplete |
+| Earnings and accounting quality | Computes accrual measures, profit/cash comparisons, working-capital measures and selected earnings-quality indicators | Questions about earnings sustainability, collections, inventory and non-cash items | Ratios may be unavailable, stale or affected by reporting definitions |
+| Ownership and governance | Evaluates available promoter holdings and changes, pledge evidence and related governance context | Changes in control, encumbrance and financing exposure requiring explanation | A pledge, holding change or missing field does not imply wrongdoing |
+| Related parties and subsidiaries | Retains group, counterparty, related-party and subsidiary records for checks | Connections relevant to the reporting perimeter and transaction review | A disclosed relationship is not inherently improper |
+| Director relationships | Connects available active-director and related-party transaction evidence | Potential interlocks requiring source-document review | Shared names or positions alone do not establish collusion |
+| External events | Qualifies available regulatory and credit events, with reasons for included and excluded evidence | Context alongside financial records and historical concerns | Event availability and classification are limited by coverage and source dates |
+| Prepared reports and history | Generates dated company reports, review reasons, classifications, flag history and change records | A repeatable review file rather than only a rank | The standard report does not expose every intermediate calculation |
 
-## Verified institutional use case
+These layers are related but distinct. **Retaining data**, **computing an indicator**, **triggering a review flag**, and **delivering a field to an external client** are four different states. This README does not collapse them into one capability claim.
 
-- **Research and due-diligence triage of covered listed Indian companies.** A user reviews a dated screening result, reads its stated reasons and available provenance, then checks the underlying filings and other evidence independently.
+## Dated implementation evidence
 
-Sentinel produces screening information for that human-review workflow. It does not ingest an institution's portfolio or borrower list, make an investment or credit decision, or deliver an automated institutional monitoring system.
+The numbers below describe specific **3 November 2026** local outputs, not a current service-level guarantee or a prospective validation study.
 
-## Other possible applications require customer integration
+| Observed result | Scope and interpretation |
+| --- | --- |
+| **1,698 populated annual cash-reconciliation values** across **1,582 companies** | Company-year observations across multiple financial years, concentrated in FY2024. This is **not** 1,582 fresh FY2026 reconciliations. |
+| **130 company reports generated in text and PDF** | Prepared reports with financial facts, triggered reasons and context. Text and PDF are two formats of the report, not 260 different companies. |
+| Annual cash-reconstruction computation exists | The inspected standard report can explain a triggered cash concern but does **not** contain a complete annual cash-reconstruction table. |
+| Separate model and rule-based review perspectives | Differences between perspectives can be informative for human review; agreement is not proof of statistical independence or predictive reliability. |
 
-These are downstream patterns to evaluate, not built-in Sentinel connectors, proven customer deployments, or claims of suitability for regulated decisions:
+The public demo showed **3,008 listed-company entries** and a **4 November 2026** snapshot in an anonymous readback on **7 November 2026**. That is a separate, dated presentation view; it should not be treated as the population of every internal table or compared directly with differently filtered radar totals. Always check the dates and coverage displayed in the current product interface.
 
-- **Banks and NBFCs:** add a public-information review prompt for a covered listed corporate counterparty. Sentinel does not screen a bank's full borrower book or calculate creditworthiness.
-- **Asset managers and investment research desks:** join covered entities to a firm's own portfolio or watchlist and route dated results to analysts. Sentinel does not ingest holdings or generate portfolio recommendations.
-- **Private equity and venture capital:** use only for covered listed entities; Sentinel does not screen private companies or replace private-company due diligence.
-- **Credit rating agencies:** consider as a supplementary public-filing research input, not a rating or rating trigger.
-- **Insurance:** consider for public-information review of covered listed corporate counterparties, not underwriting, claims, or solvency decisions.
-- **Audit and forensic-accounting firms:** use as a way to prioritize source-document examination, not as an audit procedure, fraud finding, or assurance opinion.
-- **Corporate compliance, boards, and audit committees:** consider as one input for further review of a covered listed entity, not a compliance verdict or third-party due-diligence conclusion.
-- **Regulators and public-interest researchers:** inspect the public masked examples or seek authorized access for a defined research purpose. Sentinel is not a regulator service and does not establish a relationship with any regulator.
+**Coverage is not correctness.** Populated fields can refer to older periods, and some constructed checks lack the historical inputs needed for a usable result. Missing, not scored, zero and no flag are not interchangeable.
 
-Every such workflow needs its own data joins, review controls, entitlement checks, and regulatory assessment. False positives and missed issues are possible.
+## What questions can this help an analyst investigate?
 
-## Representative output explanation
+Sentinel helps prepare evidence and organize review. It does not answer these questions conclusively.
 
-The sketch below uses placeholders. It is **not** a live result, an exact API schema, a named-company disclosure, or evidence of predictive accuracy.
+1. **Earnings and cash:** Is the direction of reported profit consistent with operating cash movement, working capital and non-cash adjustments on comparable reporting bases?
+2. **Balance-sheet quality:** Do changes in receivables, inventory, debt or other financial fields warrant a closer reading of the relevant notes?
+3. **Ownership and governance:** What does the available evidence show about promoter ownership, pledges or changes over time?
+4. **Group relationships:** Are related-party transactions, subsidiaries or director connections relevant to a financial-reporting question?
+5. **Dated external context:** Do qualified public regulatory or credit events provide context for the period being reviewed?
+6. **Conflicting screening perspectives:** Why might a model-derived rank and a rule-derived rank disagree, and what evidence should the analyst inspect before drawing a conclusion?
+7. **Persistence:** Is a concern new to the latest source record, a repeated historical observation, or a change caused by updated inputs or peer context?
 
-```text
-Snapshot date: <dated snapshot>
-Screening tier: <relative review category>
-Review reasons: <plain-language indicators to examine>
-Peer context: <comparison, when available>
-Source periods: <periods available for this record>
-```
+A properly closed review may conclude that an apparent anomaly has a legitimate explanation. Sentinel does not treat every unusual measure as an adverse finding.
 
-A tier or rank indicates relative screening priority in the stated snapshot and coverage universe. A flag is a reason to inspect source material. Peer divergence is context for that review. None is a probability of fraud, default, misconduct, or future loss.
+## Institutional review workflow
 
-## Public demonstration
+A potential institutional workflow is:
 
-Open the [public Sentinel demonstration](https://aionanalytics.in/demo/sentinel) to inspect its masked worked examples. At anonymous readback on **7 November 2026**, the page displayed a snapshot dated **4 November 2026** and a coverage count of **3,008 listed companies**. This is a dated observation, not a permanent coverage claim; use the demo page for its current displayed date and availability. The page's demo-key flow and access terms are described there.
+1. **Define the universe.** Select listed Indian issuers covered by the available snapshot and establish the relevant financial periods.
+2. **Check coverage.** Identify populated, missing, stale and unscored information before interpreting any flags.
+3. **Inspect prepared analysis.** Review financial measures, cash-reconciliation concerns, ownership and relationships, and qualifying events where available.
+4. **Read the screening perspective.** Treat tiers and separate model/rule information as priorities for examination, not calibrated probabilities.
+5. **Review the evidence.** Validate company identity, source filings, reporting basis, alternative explanations and materiality.
+6. **Record a decision.** An authorized analyst documents resolved questions, unresolved concerns or additional evidence required.
 
-The [Sentinel product page](https://aionanalytics.in/models/sentinel) explains the public examples, key access, interpretation, and limitations. The authenticated Sentinel radar is a separate gated interface and is not the public demo.
+This describes an **evaluation pattern**, not an existing integration with a particular bank or fund. Sentinel does not presently claim to ingest institutional holdings, borrower records or customer data automatically. Portfolio matching, institution-specific alerts, workflow integration, entitlements, and decision controls would require a separately scoped implementation and verification.
 
-## Institutional API access
+### Potential users and the question they bring
 
-Sentinel's programmatic access is credentialed and entitlement-scoped. Review the current [AION API catalogue](https://aionanalytics.in/apis) and use the [official contact page](https://aionanalytics.in/contact) to ask about a controlled institutional evaluation. A public page or documentation link does not grant API access. Do not send sensitive company data unless the applicable access and privacy terms expressly permit it.
+| Audience | Research question supported by available public-company analysis | What Sentinel does not replace |
+| --- | --- | --- |
+| Wealth and asset managers | Which covered holdings or watchlist issuers deserve closer accounting and governance review? | Portfolio construction, manager ratings or buy/sell decisions |
+| Investment research teams | What dated financial and relationship evidence should be reconciled before issuing a research view? | Independent analyst judgment and source verification |
+| Bank and NBFC corporate-credit teams | What public-filing concerns should be checked for a covered **listed** counterparty? | Borrower-authorized data, covenant monitoring, underwriting or credit decisions |
+| Forensic and governance researchers | Which source-backed accounting or relationship questions merit investigation? | Audit evidence, legal findings, fraud determinations or assurance |
+| Financial-data and fintech platforms | Could defined Sentinel outputs supplement a governed research workflow? | A ready-made connector, verified integration or unrestricted API entitlement |
 
-## Coverage, provenance, and limitations
+The application to a specific institution must be evaluated against its actual company universe and existing tools. A possible use case is not a confirmed customer deployment.
 
-- Sentinel covers listed Indian companies represented in the published snapshot; it is not a complete screen of every Indian entity, private company, or borrower.
-- Results are based on available public financial-reporting records in a dated build. Snapshot dates, filing periods, and input completeness can differ by company. The latest underlying accounts can be months old; the tool is not a real-time feed.
-- Review the record's displayed source, filing period, and coverage notes where available. Missing or unevaluated information is not a clean result.
-- Public examples mask company identity. Access to additional identifying results is governed by current demo and institutional entitlements.
-- Screening can produce false positives and false negatives. No prospective predictive performance, fraud-detection accuracy, or superiority claim is made here.
-- Sentinel does not give legal, accounting, investment, credit, insurance, or compliance advice. A qualified person must verify source material and make any decision.
+## How to evaluate practical value
 
-## Interpretation safeguards
+Claims such as "saves analyst hours", "detects more wrongdoing" or "outperforms existing systems" require a comparison that has **not yet been established**. A controlled study should use the same covered issuers and dates as the existing process, then measure:
 
-Sentinel is a screening and research aid—not a fraud detector. A risk tier is not a probability of wrongdoing or default, an allegation, a regulatory conclusion, an investment recommendation, or an instruction to buy or sell. A flag does not establish misconduct. Absence of a flag does not establish that a company is free of risk or error.
+- Usable issuer and financial-period coverage, including missing or unscored cases
+- Source support, materiality and novelty of proposed review questions
+- Analyst time to verify, resolve or escalate a concern
+- False positives, missed issues and a sample of low-ranked cases
+- Stability of findings as filings and coverage change
+- Prospective outcomes only after observations, event definitions and horizons are frozen in advance
 
-## Proprietary rights and licensing
+Providers of credit early warning, forensic research and corporate-governance scoring solve adjacent problems. No claim of equal scope or superior accuracy against Accumn, Ambit or other providers is established by this README.
 
-AION Sentinel, its model, scoring methods, weights, and implementation are proprietary intellectual property of AION Analytics Private Limited. This documentation does not grant rights to reproduce the model, obtain its source code or weights, redistribute outputs as a service, or use AION marks. Source materials remain subject to their own terms. Access is subject to the applicable AION terms and entitlement. No open-source license is offered for Sentinel.
+## Reading Sentinel output safely
 
-## Official links and institutional contact
+- A **percentile** is a relative rank within the stated universe and date. It is **not** the probability of fraud, default or future loss.
+- A **flag** identifies a condition for review; multiple flags may use related evidence and are not necessarily independent confirmations.
+- Two screening approaches may **disagree**. Preserve that disagreement rather than treating agreement as proof.
+- A **historical flag** is not necessarily a new event. The underlying financial-year and publication dates matter.
+- **Missing or unevaluated** information cannot be interpreted as a clean company.
+- A source-backed company concern can still have a legitimate reporting or business explanation.
+- False positives and missed issues are possible. No independently validated prospective accuracy or verified institutional loss prevention is claimed here.
 
-- [AION Sentinel product page](https://aionanalytics.in/models/sentinel)
-- [Public Sentinel demonstration](https://aionanalytics.in/demo/sentinel)
-- [API catalogue and access terms](https://aionanalytics.in/apis)
-- [Official contact page](https://aionanalytics.in/contact) · [contact@aionanalytics.in](mailto:contact@aionanalytics.in)
-- [Canonical GitHub documentation](https://github.com/AION-Analytics-India/aion-sentinel)
-- [GitLab documentation copy](https://gitlab.com/aion-analytics-india/aion-sentinel)
-- [Hugging Face documentation card](https://huggingface.co/aion-analytics-india/aion-sentinel)
-- [AION website](https://aionanalytics.in/) · [GitHub organization](https://github.com/AION-Analytics-India) · [GitLab group](https://gitlab.com/groups/aion-analytics-india) · [Hugging Face organization](https://huggingface.co/aion-analytics-india)
+Do not publish a ranked company list as a finding of misconduct. A qualified reviewer must examine the original public records and relevant explanations.
 
-### Company profiles and public channels
+## Public demo and institutional access
 
-- [LinkedIn](https://www.linkedin.com/company/aion-analytics-india/) · [X](https://x.com/Aion_analytics_) · [YouTube](https://www.youtube.com/@aionanalytics)
-- [Telegram](https://t.me/+VXWCiDgZjBI3ZjA1) · [Discord](https://discord.gg/Dk9Pjc9cVa) · [PyPI maintainer profile](https://pypi.org/user/aion-analytics/)
+- [Sentinel product page](https://aionanalytics.in/models/sentinel): public product description and limitations.
+- [Public Sentinel demonstration](https://aionanalytics.in/demo/sentinel): limited access and examples; check the page for the currently displayed snapshot, masking and eligibility.
+- [AION API catalogue](https://aionanalytics.in/apis): current access status. Programmatic use requires appropriate credentials and entitlement.
+- [Institutional contact](https://aionanalytics.in/contact): request a discussion about a defined evaluation universe, output contract, source periods and human-review criteria.
 
-**AION Analytics Private Limited (India).** Information for research and screening; not a finding, professional opinion, or advice.
+An internal or locally verified API route does **not** establish a functioning authenticated institutional integration. Public documentation does not grant access to model inference, private datasets or third-party systems.
+
+The [Hugging Face Sentinel card](https://huggingface.co/aion-analytics-india/aion-sentinel) is a discovery and documentation surface; Hugging Face does not host Sentinel model weights or inference for AION.
+
+## Product access and limitations
+
+AION Sentinel is a proprietary hosted product presented by **AION Analytics Private Limited (India)**. This repository provides public product documentation only. It does not contain executable Sentinel software, source code, model weights, private datasets or hosted inference, and is not an open-source release.
+
+Sentinel provides research information only. It is not a credit rating, audit opinion, compliance finding, fraud allegation, regulatory determination, investment recommendation or instruction to transact.
+
+## Canonical links
+
+- [Website](https://aionanalytics.in/) | [Sentinel model page](https://aionanalytics.in/models/sentinel) | [Public demo](https://aionanalytics.in/demo/sentinel)
+- [API catalogue](https://aionanalytics.in/apis) | [Contact](https://aionanalytics.in/contact) | [Email](mailto:contact@aionanalytics.in)
+- [GitHub repository](https://github.com/AION-Analytics-India/aion-sentinel) | [GitLab documentation](https://gitlab.com/aion-analytics-india/aion-sentinel) | [Hugging Face card](https://huggingface.co/aion-analytics-india/aion-sentinel)
+- [LinkedIn](https://www.linkedin.com/company/aion-analytics-india/) | [X](https://x.com/Aion_analytics_) | [YouTube](https://www.youtube.com/@aionanalytics)
+- [Telegram](https://t.me/+VXWCiDgZjBI3ZjA1) | [Discord](https://discord.gg/Dk9Pjc9cVa) | [PyPI publisher](https://pypi.org/user/aion-analytics/)
+
+**Status of this documentation:** Supported functions and counts refer to the dated evidence above, not a warranty that every output is current or available on every access tier.
