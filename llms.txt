@@ -1,42 +1,53 @@
 # AION Sentinel
 
-AION Sentinel is a proprietary hosted corporate-integrity screening product for public financial reporting. It helps human reviewers prioritize areas in dated records of covered listed Indian companies for further examination. It is not a fraud detector, finding, probability of wrongdoing, or decision recommendation.
+> Public product description for AI-assisted discovery. The canonical human-readable source is the [Sentinel README](https://github.com/AION-Analytics-India/aion-sentinel/blob/main/README.md). This file does not provide model access or a guarantee of search indexing.
 
-## Verified application
+AION Sentinel is a proprietary hosted **financial analysis and corporate review-support system** for covered Indian listed companies. It prepares financial information and relationships for qualified analysts. Relative screening ranks are one output, not the entire product or an allegation about an issuer.
 
-- Research and due-diligence triage: review dated screening tiers, flags, explanations, peer context, and available source/period details, then inspect the underlying filings independently.
+## Analytical capabilities (subject to input and delivery coverage)
 
-## Possible downstream integrations
+- **Financial record preparation:** annual financial-statement values, borrowing, cash flow, working-capital fields, reporting basis and dated source context.
+- **Statement-based cash reconstruction:** annual comparison of reconstructed cash movement with disclosed balances. This is not a bank transaction-level cash ledger, and longer cumulative history is incomplete.
+- **Accounting and earnings quality:** available accruals, cash/profit and working-capital measures, with missing and older financial periods explicitly distinguished.
+- **Ownership and governance:** available promoter holdings, ownership changes and pledge evidence.
+- **Corporate relationships:** related-party, subsidiary, group and director relationships, qualified by the available source records.
+- **External events:** selected regulatory and credit events with source and inclusion/exclusion context.
+- **Review outputs:** dated company reports, supporting explanations, screening flags, relative classifications and history where exposed by the relevant interface.
 
-Portfolio, borrower, counterparty, compliance, audit, rating, insurance, board, and regulatory-research workflows require customer-built joins and controls. They are not built-in connectors or confirmed deployments. Sentinel does not screen unlisted companies, ingest institutional portfolios, or make credit, investment, underwriting, audit, or compliance decisions.
+A stored input, a computed indicator, a triggered flag and a client-delivered report field are different states. Not every internal calculation is delivered in every interface. The current standard report does not include a complete annual cash-reconstruction table.
 
-## Reading outputs
+## Snapshot and coverage interpretation
 
-A tier is a relative screening category within a dated coverage snapshot, not a calibrated probability. A flag is a prompt to inspect source material; peer context is not proof. Missing or unevaluated information is not a clean result. False positives and missed issues are possible.
+- The internal local review dated **3 November 2026** observed **1,698** populated annual cash-reconciliation company-year values across **1,582** companies, concentrated in historical financial periods; it also observed **130** generated company reports in text and PDF formats.
+- The **8 November 2026** Sentinel scoring output covered **2,856** companies. The source radar file is capped at **500** records and the published subscriber dashboard feed at **200** ranked records. These are different pipeline stages, not the entire NSE-listed universe. These counts can change with later runs.
+- The separate public demonstration displayed **3,008 entries** for its **4 November 2026** snapshot in a **7 November 2026** anonymous check. Its inclusion rules and output contract differ from the subscriber radar.
+- Inputs can be older or missing, and an unreported future quarterly result is not itself an adverse financial signal. 'Not scored', zero, missing and no flag must not be equated.
 
-## Current public availability
+## Intended institutional evaluation
 
-The public demo is at https://aionanalytics.in/demo/sentinel. On anonymous readback 2026-11-07, it displayed snapshot date 2026-11-04 and 3,008 listed companies; these are dated page values, not permanent coverage claims. Additional access is controlled by current demo and institutional entitlements. Institutional API terms: https://aionanalytics.in/apis. Product and limitations: https://aionanalytics.in/models/sentinel. Contact: https://aionanalytics.in/contact.
+Research teams, wealth and asset managers, governance researchers, and corporate-credit analysts may evaluate whether Sentinel provides useful public-issuer research preparation. A controlled comparison should measure matched issuer coverage, source support, new useful findings, analyst review effort and misses. This does **not** claim a customer integration, monitored borrower book, portfolio upload, proven accuracy improvement, avoided loss or verified time savings.
 
-## Proprietary boundary
+## Output interpretation
 
-Sentinel is proprietary intellectual property of AION Analytics Private Limited (India). No source code, model weights, confidential methodology, or open-source license is provided. The Hugging Face card is documentation only; Hugging Face hosts no Sentinel inference or weights.
+- A tier or percentile is a relative priority in the specified snapshot, **not** a calibrated likelihood of fraud or default.
+- Flags, director connections, related parties, pledges and ratios require interpretation of the underlying filing and alternative explanations.
+- Agreement between separate model and rule perspectives is not proof of independent evidence or correctness.
+- Missing information is not a clean bill of health. False positives and missed issues are possible.
+- Sentinel does not issue audit opinions, fraud findings, credit ratings, investment recommendations or credit decisions. Human review is required.
 
-## Public company channels
+## Access and licensing
 
-- LinkedIn: https://www.linkedin.com/company/aion-analytics-india/
-- X: https://x.com/Aion_analytics_
-- YouTube: https://www.youtube.com/@aionanalytics
-- Telegram: https://t.me/+VXWCiDgZjBI3ZjA1
-- Discord: https://discord.gg/Dk9Pjc9cVa
-- PyPI maintainer profile: https://pypi.org/user/aion-analytics/
+Sentinel is a proprietary hosted service presented by AION Analytics Private Limited (India). This documentation repository does not publish source code, model weights, private data or an open-source implementation. The Hugging Face model card is documentation only and does not host inference. Institutional access is subject to a separate scope and entitlement.
 
-## Canonical references
+## Canonical public references
 
-- Website: https://aionanalytics.in/
-- GitHub documentation: https://github.com/AION-Analytics-India/aion-sentinel
-- GitLab documentation copy: https://gitlab.com/aion-analytics-india/aion-sentinel
-- Hugging Face documentation card: https://huggingface.co/aion-analytics-india/aion-sentinel
-- GitHub organization: https://github.com/AION-Analytics-India
-- GitLab group: https://gitlab.com/groups/aion-analytics-india
-- Hugging Face organization: https://huggingface.co/aion-analytics-india
+- [Sentinel README](https://github.com/AION-Analytics-India/aion-sentinel/blob/main/README.md)
+- [Sentinel model page](https://aionanalytics.in/models/sentinel)
+- [Public demo](https://aionanalytics.in/demo/sentinel)
+- [AION API catalogue](https://aionanalytics.in/apis)
+- [Institutional enquiries](https://aionanalytics.in/contact)
+- [AION homepage](https://aionanalytics.in/)
+- [GitLab documentation](https://gitlab.com/aion-analytics-india/aion-sentinel)
+- [Hugging Face documentation](https://huggingface.co/aion-analytics-india/aion-sentinel)
+
+This document describes dated observations and product boundaries, not a certification of model accuracy, current availability or customer uptake.
