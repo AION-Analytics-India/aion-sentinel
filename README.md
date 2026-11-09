@@ -38,6 +38,12 @@ The numbers below describe specific **3 November 2026** local outputs, not a cur
 
 The public demo showed **3,008 listed-company entries** and a **4 November 2026** snapshot in an anonymous readback on **7 November 2026**. That is a separate, dated presentation view; it should not be treated as the population of every internal table or compared directly with differently filtered radar totals. Always check the dates and coverage displayed in the current product interface.
 
+### Separate 8 November 2026 output layers
+
+The **8 November 2026 daily scoring output** contained **2,856 company scoring rows** within Sentinel's covered NSE-listed-company pipeline universe, not necessarily every NSE-listed issuer. The **source-radar file** retains **up to 500 ranked records** as an intermediate output; the **subscriber-facing dashboard feed** publishes **up to 200 ranked records**. These are different publication layers, not subscriber counts, independent populations, or evidence that all computed fields reach clients. The separately dated **3,008-entry public-demo snapshot** is not the same as the 8 November scoring run.
+
+[Read the dated public-safe coverage receipt](https://aionanalytics.in/data/sentinel-coverage/2026-11-08.json). The covered-universe pipeline runs daily, but financial-statement periods and source-fetch dates vary. A quarterly filing not yet due is not by itself an adverse signal.
+
 **Coverage is not correctness.** Populated fields can refer to older periods, and some constructed checks lack the historical inputs needed for a usable result. Missing, not scored, zero and no flag are not interchangeable.
 
 ## What questions can this help an analyst investigate?
