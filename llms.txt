@@ -1,6 +1,6 @@
 # AION Sentinel
 
-AION Sentinel is a proprietary hosted corporate-integrity screening product for public financial reporting. It helps human reviewers prioritize areas in dated records of covered listed Indian companies for further examination. It is not a fraud detector, finding, probability of wrongdoing, or decision recommendation.
+AION Sentinel is a proprietary hosted forensic-accounting and company-analysis system for covered listed Indian companies. It prepares dated financial-statement, cash-flow, earnings-quality, ownership and corporate-relationship evidence for qualified human review. It is not a fraud detector, a finding of misconduct, a calibrated default probability, an investment recommendation or a substitute for an analyst.
 
 ## Verified application
 
@@ -16,7 +16,11 @@ A tier is a relative screening category within a dated coverage snapshot, not a 
 
 ## Current public availability
 
-The public demo is at https://aionanalytics.in/demo/sentinel. On anonymous readback 2026-11-07, it displayed snapshot date 2026-11-04 and 3,008 listed companies; these are dated page values, not permanent coverage claims. Additional access is controlled by current demo and institutional entitlements. Institutional API terms: https://aionanalytics.in/apis. Product and limitations: https://aionanalytics.in/models/sentinel. Contact: https://aionanalytics.in/contact.
+The public demo is at https://aionanalytics.in/demo/sentinel. On anonymous readback 2026-11-07, it displayed snapshot date 2026-11-04 and 3,008 listed companies; these are dated page values, not current full-universe counts. On 2026-11-13, Sentinel's covered searchable population included 2,856 company identities: 2,583 with score details and 273 returning identity/publication status only. The daily ranked Top 200 radar is a distinct subset; absence from it does not imply ROUTINE status or a clean assessment.
+
+Public authenticated routes: GET /api/v1/sentinel/search/universe?q=... and GET /api/v1/sentinel/company/{identifier}. Both require X-API-Key; the public gateway does not expose /v1/... aliases. Search has no result-count cap, but company-detail requests remain subject to the existing plan allowance. The 2026-11-13 release recorded exhaustive local search checks, a browser search for ASTRAL and HTTP 401 without a key, but no successful live query using a valid subscriber key. Positive authenticated production access is not yet confirmed by that evidence.
+
+API reference: https://github.com/AION-Analytics-India/aion-sentinel/blob/main/docs/SENTINEL_UNIVERSE_SEARCH.md. Additional access is controlled by current demo and institutional entitlements. API terms: https://aionanalytics.in/apis. Product and limitations: https://aionanalytics.in/models/sentinel. Contact: https://aionanalytics.in/contact.
 
 ## Proprietary boundary
 
