@@ -46,6 +46,23 @@ The **8 November 2026 daily scoring output** contained **2,856 company scoring r
 
 **Coverage is not correctness.** Populated fields can refer to older periods, and some constructed checks lack the historical inputs needed for a usable result. Missing, not scored, zero and no flag are not interchangeable.
 
+
+### 13 November 2026 full-universe on-demand search
+
+Sentinel's authenticated search now addresses the **2,856 searchable company identities** in the covered 13 November 2026 output. **2,583 identities** have company score details available, while **273** return identity/publication status only under the existing rules. These are not 2,856 identical full-detail reports, and "full universe" refers to this dated covered population, not all NSE-listed issuers.
+
+The on-demand lookup is **separate from the daily Top 200 radar**. A company outside the Top 200 is not thereby classified as ROUTINE or cleared of possible concerns. Status-only, unscored, missing and no adverse flag remain distinct outcomes. Search has no result-count cap, but normal plan allowances and authorization still govern access to company details.
+
+**Authenticated public API paths:**
+
+- `GET /api/v1/sentinel/search/universe?q=...` searches the covered identity universe.
+- `GET /api/v1/sentinel/company/{identifier}` requests the available company detail or identity/publication status for an identifier.
+- Both require the `X-API-Key` request header. The public gateway does **not** expose equivalent `/v1/...` aliases.
+
+**Validation boundary:** The 13 November release report records exhaustive local API checks for 2,856 tickers and 2,856 exact company names, with a broad query returning 2,490 matches. An isolated frontend browser test found ASTRAL. Requests without a key returned HTTP 401. **A successful authenticated production lookup using a valid subscriber key was not tested**, so positive authenticated production access remains unconfirmed by that release's evidence. Do not equate route publication or HTTP 401 with proof of successful subscriber access.
+
+[Read the public route and access reference](docs/SENTINEL_UNIVERSE_SEARCH.md). These capabilities are distinct from the older 8 November scoring and publication snapshots above.
+
 ## What questions can this help an analyst investigate?
 
 Sentinel helps prepare evidence and organize review. It does not answer these questions conclusively.
@@ -115,9 +132,10 @@ Do not publish a ranked company list as a finding of misconduct. A qualified rev
 - [Sentinel product page](https://aionanalytics.in/models/sentinel): public product description and limitations.
 - [Public Sentinel demonstration](https://aionanalytics.in/demo/sentinel): limited access and examples; check the page for the currently displayed snapshot, masking and eligibility.
 - [AION API catalogue](https://aionanalytics.in/apis): current access status. Programmatic use requires appropriate credentials and entitlement.
+- [Sentinel authenticated full-universe lookup reference](docs/SENTINEL_UNIVERSE_SEARCH.md): coverage, public gateway paths, `X-API-Key` and validation limits.
 - [Institutional contact](https://aionanalytics.in/contact): request a discussion about a defined evaluation universe, output contract, source periods and human-review criteria.
 
-An internal or locally verified API route does **not** establish a functioning authenticated institutional integration. Public documentation does not grant access to model inference, private datasets or third-party systems.
+The public Sentinel universe and company-detail routes use `X-API-Key`; a request without a key returned HTTP 401 in the reported release checks. However, the 13 November release did not confirm a successful live lookup using a valid subscriber key. Route visibility is not proof of positive authenticated production access. Public documentation does not grant access to model inference, private datasets or third-party systems.
 
 The [Hugging Face Sentinel card](https://huggingface.co/aion-analytics-india/aion-sentinel) is a discovery and documentation surface; Hugging Face does not host Sentinel model weights or inference for AION.
 
