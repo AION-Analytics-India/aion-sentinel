@@ -14,7 +14,13 @@ Portfolio, borrower, counterparty, compliance, audit, rating, insurance, board, 
 
 A tier is a relative screening category within a dated coverage snapshot, not a calibrated probability. A flag is a prompt to inspect source material; peer context is not proof. Missing or unevaluated information is not a clean result. False positives and missed issues are possible.
 
-## Current public availability
+## Current institutional search coverage - 14 November 2026
+
+The dated searchable projection contains 3,013 company identities: 2,740 have model-score detail (2,738 convergent classifications, 2 classification-unavailable) and 273 return identity/publication status only. The separate proactive radar displays up to 200 ranked records, but this is not a search cap. On-demand search has no result-count cap; company-detail requests remain subject to plan allowances and publication rules. Risk managers and investment bankers can query other covered companies outside the ranked radar. No claim is made to cover all NSE listings. Status-only, missing, unscored and outside the radar do not imply ROUTINE or a clean assessment.
+
+Public routes: GET /api/v1/sentinel/search/universe?q=... (ticker, name or CIN) and GET /api/v1/sentinel/company/{identifier}, both requiring X-API-Key. No equivalent public /v1/... aliases exist. A positive subscriber-key production request has not been verified. A separate Decision API readiness test returned HTTP 503 on 14 November at 07:39 IST; it is not a result from those search routes.
+
+## Previous dated public availability
 
 The public demo is at https://aionanalytics.in/demo/sentinel. On anonymous readback 2026-11-07, it displayed snapshot date 2026-11-04 and 3,008 listed companies; these are dated page values, not current full-universe counts. On 2026-11-13, Sentinel's covered searchable population included 2,856 company identities: 2,583 with score details and 273 returning identity/publication status only. The daily ranked Top 200 radar is a distinct subset; absence from it does not imply ROUTINE status or a clean assessment.
 
