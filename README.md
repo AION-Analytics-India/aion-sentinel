@@ -8,6 +8,23 @@ The product is designed to support qualified human research. It does **not** est
 
 > **Product boundary:** This is public capability documentation, not a repository of executable Sentinel code or model weights. Features below have different levels of input coverage, computation, reporting and client delivery. An internal result should not be assumed to exist in every client-facing response.
 
+## Updated institutional search coverage - 14 November 2026
+
+**There is no 200-company limit on on-demand subscriber search.** Eligible institutions can search every identity in the current published searchable projection. The up-to-200 proactive radar is a separate ranked monitoring feed; it does not determine which companies can be searched. Search results have no result-count cap, while individual company-detail requests remain subject to existing plan allowances and publication rules.
+
+| 14 November 2026 published snapshot | Count | Meaning |
+| --- | ---: | --- |
+| Searchable identities | 3,013 | The dated covered projection, not all NSE-listed issuers |
+| With model-score detail | 2,740 | 2,738 convergent classifications; 2 score-present but classification-unavailable |
+| Status-only identities | 273 | Identity or publication status, with no model-score detail |
+| Proactive radar | Up to 200 | Separate ranked monitoring feed, not a search cap |
+
+For institutional risk managers, investment bankers and research teams, this means a company outside the Top 200 can still be queried if it is within the dated searchable projection. Being outside that feed, unscored, or status-only does not imply ROUTINE or an all-clear. Counts can change with each published snapshot.
+
+The public gateway routes remain `GET /api/v1/sentinel/search/universe?q=...` (ticker, name or CIN) and `GET /api/v1/sentinel/company/{identifier}`, using `X-API-Key`. No equivalent public `/v1/...` aliases exist. A saved owner-key check returned HTTP 200 for 157 added Mainboard identities, but this did **not** verify positive production access using a valid subscriber key. The separate Decision API readiness check returned HTTP 503 at 07:39 IST on 14 November; this is not a search or company-detail response.
+
+This 14 November coverage is the newer dated snapshot, not a rewrite of the historical 13 November 2,856-identity record. Source periods and identity coverage vary. See [the current model page](https://aionanalytics.in/models/sentinel) and [the public API contract](docs/SENTINEL_UNIVERSE_SEARCH.md).
+
 ## What Sentinel actually prepares
 
 The following analytical work was examined in an internal capability review dated **3 November 2026**. It is not a statement that every calculation is complete, current, or exposed in the standard public demo.
@@ -47,7 +64,7 @@ The **8 November 2026 daily scoring output** contained **2,856 company scoring r
 **Coverage is not correctness.** Populated fields can refer to older periods, and some constructed checks lack the historical inputs needed for a usable result. Missing, not scored, zero and no flag are not interchangeable.
 
 
-### 13 November 2026 full-universe on-demand search
+### Historical 13 November 2026 full-universe on-demand search
 
 Sentinel's authenticated search now addresses the **2,856 searchable company identities** in the covered 13 November 2026 output. **2,583 identities** have company score details available, while **273** return identity/publication status only under the existing rules. These are not 2,856 identical full-detail reports, and "full universe" refers to this dated covered population, not all NSE-listed issuers.
 
