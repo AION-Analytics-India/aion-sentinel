@@ -1,8 +1,16 @@
 # Sentinel full-universe search and company detail API
 
-Public product documentation. Scope: 13 November 2026 release report.
+Public product documentation. Scope: 13 November 2026 release report and 14 November 2026 published coverage.
 
 Sentinel is a proprietary hosted forensic-accounting and company-analysis system for qualified human review. This document describes public request routes and reported release verification, not private scoring methodology, model weights, or a guaranteed subscriber integration.
+
+## Latest dated searchable projection - 14 November 2026
+
+The **Top 200 is not an on-demand search limit**. The published 14 November projection has **3,013 searchable identities**, with **2,740 score-detail identities** (2,738 convergently classified and 2 score-present but classification-unavailable), and **273 status-only identities**. The ranked proactive feed remains a separate view of up to 200 records. Any covered identity can be searched by an authorized subscriber; company-detail requests retain the existing plan allowance. There is no claim of complete NSE-listed issuer coverage or of unlimited request volume.
+
+The public routes are `GET /api/v1/sentinel/search/universe?q=...` (ticker, company name or CIN) and `GET /api/v1/sentinel/company/{identifier}`, both requiring `X-API-Key`. A company outside the Top 200, or a status-only record, must not be interpreted as ROUTINE. A saved owner-key test for 157 Mainboard records does not establish valid subscriber-key production access, which remains unverified by the submitted evidence. At 07:39 IST on 14 November a **separate** Decision API readiness test returned HTTP 503; that result cannot be attributed to these lookup routes.
+
+The 13 November release data below is retained as dated historical evidence, not the current 14 November denominator.
 
 ## Dated universe and response depth
 
